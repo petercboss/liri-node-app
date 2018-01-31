@@ -59,6 +59,7 @@ switch (command) {
             movieSearch = 'Mr. Nobody'
         };
         request('https://www.omdbapi.com/?apikey=trilogy&t=' + movieSearch, (err, response, data) => {
+            if (err) throw (err);
             let jsonData = JSON.parse(data);
             log.info(`
                 ${jsonData.Title}
