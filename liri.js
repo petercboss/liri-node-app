@@ -58,7 +58,7 @@ switch (command) {
         if (movieSearch === undefined) {
             movieSearch = 'Mr. Nobody'
         };
-        request('https://www.omdbapi.com/?apikey=trilogy&t=' + movieSearch, function (err, response, data) {
+        request('https://www.omdbapi.com/?apikey=trilogy&t=' + movieSearch, (err, response, data) => {
             let jsonData = JSON.parse(data);
             log.info(`
                 ${jsonData.Title}
@@ -83,8 +83,6 @@ switch (command) {
             cmd.run('node liri.js ' + random[0] + ' ' + random[1]);
         });
         break;
-        default:
-            console.log('Valid commands are "my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"');
+    default:
+        console.log('Valid commands are "my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"');
 }
-
-
